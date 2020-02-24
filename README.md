@@ -13,14 +13,15 @@ Pour Windows 10, consulter
 
 ## Installation sous macOS
 
-1. Installer [Aquamacs](http://aquamacs.org/), ou bien Emacs avec
-   [Homebrew](https://brew.sh/).
+1. Installer [Aquamacs](http://aquamacs.org) (version GUI, recommandé)
+   ou [Emacs avec Homebrew](https://formulae.brew.sh/formula/emacs)
+   (version TTY).
 
 1. Installer `gpatch`, `pkg-config` et `openssl` 1.1 avec Homebrew :
 
-        brew install gpatch     # comme opam utilise des options GNU
+        brew install gpatch      # comme opam utilise des options GNU
         brew install pkg-config
-        brew install openssl    # suivre les instructions si besoin
+        brew install openssl@1.1 # suivre les instructions si besoin
 
 1. Installer `opam` 2.0 avec Homebrew :
 
