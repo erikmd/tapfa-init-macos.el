@@ -16,9 +16,11 @@ Pour Windows 10, consulter
 1. Installer [Aquamacs](http://aquamacs.org/), ou bien Emacs avec
    [Homebrew](https://brew.sh/).
 
-1. Installer `gpatch` avec Homebrew :
+1. Installer `gpatch`, `pkg-config` et `openssl` 1.1 avec Homebrew :
 
-        brew install gpatch  #(as opam uses gnu-specific options)
+        brew install gpatch     # comme opam utilise des options GNU
+        brew install pkg-config
+        brew install openssl    # suivre les instructions si besoin
 
 1. Installer `opam` 2.0 avec Homebrew :
 
