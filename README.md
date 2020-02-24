@@ -4,36 +4,26 @@ Cette configuration nécessite d'installer [GNU
 Emacs](https://www.gnu.org/software/emacs/) et
 [opam](https://ocaml.org/) (*the OCaml package manager*).
 
-La procédure ci-dessous concerne uniquement les distributions
-GNU/Linux basées sur Debian.
+La procédure ci-dessous concerne uniquement macOS.
+
+Pour GNU/Linux, consulter
+<https://github.com/erikmd/tapfa-init.el#readme>.
 
 Pour Windows 10, consulter
 <https://github.com/erikmd/tapfa-init-win64.el#readme>.
 
-Pour macOS, consulter
-<https://github.com/erikmd/tapfa-init-macos.el#readme>.
+## Installation sous macOS
 
-## Installation sous GNU/Linux Ubuntu 18.04+ ou Debian 9+
+1. Installer [Aquamacs](http://aquamacs.org/), ou bien Emacs avec
+   [Homebrew](https://brew.sh/).
 
-(*Ces composants sont déjà installés sur les PC de l'UPS, sauter alors
-ces 5 étapes.*)
+1. Installer `gpatch` avec Homebrew :
 
-1. Installer `emacs` (version `>= 25.1`) et `rlwrap` (*optionnel*) :
+        brew install gpatch  #(as opam uses gnu-specific options)
 
-        sudo apt-get update
-        sudo apt-get install emacs25 rlwrap
+1. Installer `opam` 2.0 avec Homebrew :
 
-1. Installer les dépendances d'`opam` :
-
-        sudo apt-get install aspcud bubblewrap build-essential curl git m4 tar unzip
-        sudo apt-get pkg-config libssl-dev
-
-1. Installer `opam` 2.0 (comme les paquets Debian/Ubuntu sont trop
-   anciens, mieux vaut utiliser le [script d'installation
-   officiel](https://opam.ocaml.org/doc/Install.html)) :
-
-        curl -fOL https://github.com/ocaml/opam/raw/master/shell/install.sh
-        sh ./install.sh
+        brew install opam
 
 1. Configurer `opam` puis installer `merlin`, `utop`,
    `learn-ocaml-client` et `coq` :
@@ -64,19 +54,31 @@ Pour installer automatiquement les modes
    votre *homedir* (`~/`) :
 
         cd                    # pour revenir à la racine du homedir (~/)
-        mv -f .emacs .emacs~  # pour sauvegarder votre fichier au cas où
+        mv -f .emacs .emacs~  # pour sauvegarder votre fichier
         # si la ligne précédente renvoie une erreur, ne pas en tenir compte
-        curl -fOL https://github.com/erikmd/tapfa-init.el/raw/master/.emacs
+        curl -fOL https://github.com/erikmd/tapfa-init-macos.el/raw/master/.emacs
 
     > *Note* : Si vous n'utilisez pas `curl` mais la fonctionnalité de
     > téléchargement de votre navigateur, veillez à ce que celui-ci
     > n'enlève pas le point au début du fichier
-    > ([`.emacs`](https://github.com/erikmd/tapfa-init.el/raw/master/.emacs),
+    > ([`.emacs`](https://github.com/erikmd/tapfa-init-macos.el/raw/master/.emacs),
     > pas `emacs`).
 
-1. Lancer Emacs :
+1. Si vous n'utilisez pas GNU Emacs mais *Aquamacs*, pour éviter un
+   souci de connexion TLS avec MELPA (le gestionnaire de paquets
+   d'Emacs), vous pourriez avoir besoin d'exécuter :
 
-        emacs &
+        brew install libressl
+        brew install gnutls
+
+    puis d'ajouter ces deux lignes au début du fichier `~/.emacs` :
+
+        (with-eval-after-load 'tls
+          (push "/usr/local/etc/libressl/cert.pem" gnutls-trustfiles))
+
+    (*Source* : [davidswelt/aquamacs-emacs#133](https://github.com/davidswelt/aquamacs-emacs/issues/133))
+
+1. Lancer Aquamacs (ou Emacs).
 
     L'installation des modes Emacs pour OCaml et Coq devrait se lancer
     automatiquement et durer environ 2'30.
