@@ -27,12 +27,11 @@ Pour Windows 10, consulter
 
         brew install opam
 
-1. Configurer `opam` puis installer `merlin`, `utop`,
-   `learn-ocaml-client` et `coq` :
+1. Configurer `opam` puis installer `merlin` et `coq` :
 
         opam init --auto-setup --yes --compiler=ocaml-base-compiler.4.05.0
         eval $(opam env)
-        opam install -y merlin utop learn-ocaml-client
+        opam install -y merlin
         
         opam repo add --all-switches --set-default coq-released https://coq.inria.fr/opam/released
         opam pin add -n -k version coq 8.11.0
@@ -92,10 +91,6 @@ Pour installer automatiquement les modes
 
     Vous pouvez alors **créer ou ouvrir un fichier OCaml** en tapant
     <kbd>C-x C-f tp1.ml RET</kbd>
-
-1. Et pour utiliser le mode
-   [`learn-ocaml`](https://github.com/pfitaxel/learn-ocaml.el#usage),
-   vous pouvez taper <kbd>M-x learn-ocaml-mode RET</kbd>.
 
 ## Remarque
 
