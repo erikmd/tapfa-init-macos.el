@@ -6,10 +6,10 @@ Cette configuration nécessite d'installer Emacs et
 La procédure ci-dessous concerne uniquement macOS.
 
 Pour GNU/Linux, consulter
-<https://github.com/erikmd/tapfa-init.el#readme>.
+<https://github.com/erikmd/tapfa-init.el/tree/coq#readme>.
 
 Pour Windows 10, consulter
-<https://github.com/erikmd/tapfa-init-win64.el#readme>.
+<https://github.com/erikmd/tapfa-init-win64.el/tree/coq#readme>.
 
 ## Installation sous macOS
 
